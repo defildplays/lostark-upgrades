@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A practical Lost Ark DPS progression checklist: every upgrade that actually makes your character stronger, explained in Lost Ark terms." />
+  <meta name="theme-color" content="#0b0d12" />
+  <title>Lost Ark DPS Progression Checklist</title>
+  <style>
+    :root{
+      --bg:#090b10;
+      --bg2:#0f1219;
+      --panel:#121620;
+      --panel2:#171c27;
+      --line:#282f3d;
+      --text:#eef1f7;
+      --muted:#9ca7b8;
+      --gold:#e1b85b;
+      --gold2:#ffe0a0;
+      --red:#ff667a;
+      --green:#64d8a4;
+      --blue:#6bbcff;
+      --purple:#b995ff;
+      --shadow:0 18px 50px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% -10%, rgba(225,184,91,.12), transparent 34rem),
+        radial-gradient(circle at 90% 0%, rgba(107,188,255,.08), transparent 30rem),
+        linear-gradient(180deg,#080a0f 0%,#0b0e14 44%,#090b10 100%);
+      min-height:100vh;
+    }
+    a{color:inherit}
+    button,input{font:inherit}
+    .wrap{max-width:1260px;margin:0 auto;padding:0 24px}
+    .topbar{
+      position:sticky;top:0;z-index:20;
+      background:rgba(9,11,16,.84);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .topbar-inner{
+      height:68px;display:flex;align-items:center;gap:18px;justify-content:space-between
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.01em}
+    .brand-mark{
+      width:36px;height:36px;border:1px solid #5d4b2f;border-radius:10px;
+      display:grid;place-items:center;
+      background:linear-gradient(145deg,#1a1720,#10151c);
+      box-shadow:inset 0 0 24px rgba(225,184,91,.08)
+    }
+    .brand-mark:before{
+      content:"";width:16px;height:16px;transform:rotate(45deg);
+      border:2px solid var(--gold);box-shadow:0 0 16px rgba(225,184,91,.35)
+    }
+    .nav{display:flex;gap:8px;flex-wrap:wrap}
+    .nav a{
+      color:var(--muted);text-decoration:none;padding:8px 11px;border-radius:9px;font-size:14px
+    }
+    .nav a:hover{background:#171b24;color:#fff}
+    .hero{padding:78px 0 42px}
+    .kicker{
+      display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:999px;
+      background:rgba(225,184,91,.09);border:1px solid rgba(225,184,91,.22);color:var(--gold2);
+      font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em
+    }
+    .hero h1{
+      font-size:clamp(42px,7vw,82px);line-height:.96;margin:22px 0 20px;
+      letter-spacing:-.045em;max-width:970px
+    }
+    .hero h1 span{color:var(--gold)}
+    .hero-copy{
+      max-width:830px;color:#b9c2d0;font-size:19px;line-height:1.7;margin:0
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{
+      display:inline-flex;align-items:center;gap:9px;padding:12px 16px;border-radius:11px;
+      text-decoration:none;border:1px solid var(--line);background:#141924;color:#fff;font-weight:750
+    }
+    .btn.primary{
+      background:linear-gradient(180deg,#e8c56f,#c99c3f);color:#17120b;border-color:#e7c36d
+    }
+    .btn:hover{transform:translateY(-1px)}
+.section{padding:42px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:20px}
+    .eyebrow{font-size:12px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.12em}
+    h2{font-size:34px;margin:7px 0 0;letter-spacing:-.025em}
+    .section-head p{max-width:600px;color:var(--muted);margin:0;line-height:1.55}
+    .progress-shell{
+      padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(18,22,32,.85);
+      box-shadow:var(--shadow);margin-bottom:18px
+    }
+    .progress-top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:10px}
+    .progress-top b{font-size:15px}
+    .progress-top span{color:var(--muted);font-size:13px}
+    .bar{height:10px;border-radius:999px;background:#080a0f;overflow:hidden;border:1px solid #242b38}
+    .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,#b88835,#f0ce78);transition:.25s ease}
+    .toolbar{
+      display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0 26px
+    }
+    .search{
+      flex:1;min-width:240px;background:#11151d;color:white;border:1px solid var(--line);
+      padding:12px 14px;border-radius:11px;outline:none
+    }
+    .search:focus{border-color:#6a5b3c;box-shadow:0 0 0 3px rgba(225,184,91,.08)}
+    .filter{
+      border:1px solid var(--line);background:#10141c;color:#bdc7d7;border-radius:999px;padding:10px 13px;
+      cursor:pointer;font-size:13px;font-weight:700
+    }
+    .filter.active{background:#2a2418;border-color:#735f34;color:#ffe4a7}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{
+      border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(23,28,39,.96),rgba(16,20,28,.96));
+      padding:18px;position:relative;overflow:hidden;min-height:230px;transition:.18s ease
+    }
+    .card:hover{border-color:#394456;transform:translateY(-2px)}
+    .card.done{opacity:.58}
+    .card.done .card-title{text-decoration:line-through;text-decoration-color:#697386}
+    .num{
+      position:absolute;right:14px;bottom:8px;font-size:46px;font-weight:900;color:rgba(255,255,255,.035);
+      letter-spacing:-.06em;pointer-events:none
+    }
+    .card-top{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin-bottom:13px}
+    .tag{
+      font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.07em;
+      padding:5px 8px;border-radius:7px;border:1px solid
+    }
+    .tag.essential{color:#ffd98a;background:rgba(225,184,91,.08);border-color:rgba(225,184,91,.28)}
+    .tag.high{color:#8ed3ff;background:rgba(107,188,255,.07);border-color:rgba(107,188,255,.25)}
+    .tag.medium{color:#9ae2be;background:rgba(100,216,164,.07);border-color:rgba(100,216,164,.22)}
+    .tag.minmax{color:#cdb4ff;background:rgba(185,149,255,.07);border-color:rgba(185,149,255,.24)}
+    .check{
+      width:29px;height:29px;border-radius:8px;border:1px solid #3a4352;background:#0c1016;color:#101418;
+      display:grid;place-items:center;cursor:pointer;font-weight:900;position:relative;z-index:3
+    }
+    .done .check{background:var(--green);border-color:var(--green)}
+    .card-title{font-size:20px;font-weight:850;margin-bottom:9px;letter-spacing:-.02em;padding-right:28px}
+    .card p{color:#aeb8c8;line-height:1.55;font-size:14px;margin:0 0 14px}
+    .action{
+      margin-top:auto;padding-top:12px;border-top:1px solid rgba(255,255,255,.055);
+      color:#dbe1ea;font-size:13px;line-height:1.45
+    }
+    .action b{color:var(--gold2)}
+    .cards-note{
+      margin-top:14px;color:var(--muted);font-size:13px
+    }
+    .raid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .raid{
+      padding:20px;border:1px solid var(--line);border-radius:16px;background:#11151d
+    }
+    .raid .icon{font-size:22px;margin-bottom:12px}
+    .raid h3{margin:0 0 8px;font-size:18px}
+    .raid p{margin:0;color:var(--muted);line-height:1.55;font-size:14px}
+    .visual-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    figure{
+      margin:0;background:#10141c;border:1px solid var(--line);border-radius:16px;overflow:hidden
+    }
+    figure img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#080a0f}
+    figcaption{padding:14px 16px;color:#aab5c5;font-size:13px;line-height:1.45}
+    figcaption b{display:block;color:#fff;font-size:15px;margin-bottom:3px}
+    .sources{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:10px
+    }
+    .source{
+      display:block;text-decoration:none;padding:15px 16px;border-radius:13px;border:1px solid var(--line);
+      background:#10141c;color:#c9d0dc
+    }
+    .source b{display:block;color:#fff;margin-bottom:4px}
+    .source span{font-size:12px;color:#8591a3}
+    .source:hover{border-color:#465267}
+    .excluded{
+      padding:18px;border:1px dashed #3a4352;border-radius:14px;color:#aeb8c8;line-height:1.55
+    }
+    .accounting-note{
+      margin-bottom:14px;padding:14px 16px;border:1px solid rgba(225,184,91,.22);
+      border-radius:13px;background:rgba(225,184,91,.06);color:#cfd5df;line-height:1.55
+    }
+    .accounting{display:grid;gap:8px}
+    .account-row{
+      display:grid;grid-template-columns:72px 220px 145px 1fr;gap:12px;align-items:center;
+      padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#10141c
+    }
+    .account-row.head{
+      background:#0c1016;color:#8f9aac;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em
+    }
+    .account-num{font-weight:900;color:var(--gold2)}
+    .account-name{font-weight:800;color:#f0f3f8}
+    .status{
+      width:max-content;padding:5px 8px;border-radius:999px;border:1px solid;font-size:11px;font-weight:850;
+      text-transform:uppercase;letter-spacing:.05em
+    }
+    .status.checklist{color:#9ae2be;border-color:rgba(100,216,164,.25);background:rgba(100,216,164,.07)}
+    .status.raid{color:#8ed3ff;border-color:rgba(107,188,255,.25);background:rgba(107,188,255,.07)}
+    .status.factor{color:#cdb4ff;border-color:rgba(185,149,255,.24);background:rgba(185,149,255,.07)}
+    .status.niche{color:#ffd98a;border-color:rgba(225,184,91,.28);background:rgba(225,184,91,.08)}
+    .account-text{color:#9faaba;font-size:13px;line-height:1.45}
+    .special-factor{
+      margin-top:16px;padding:24px;border:1px solid rgba(225,184,91,.38);border-radius:16px;
+      background:linear-gradient(180deg,rgba(225,184,91,.11),rgba(17,21,29,.98));
+      box-shadow:inset 0 0 42px rgba(225,184,91,.045)
+    }
+    .special-kicker{
+      color:var(--gold);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px
+    }
+    .special-title{font-size:24px;font-weight:900;letter-spacing:-.025em;margin-bottom:8px}
+    .special-factor p{margin:0;color:#b9c2d0;line-height:1.6;max-width:950px}
+    footer{padding:50px 0 70px;color:#7f8999;font-size:13px}
+    .made{color:#c3cad6}
+    .hide{display:none !important}
+    @media(max-width:980px){
+      .grid,.raid-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:720px){
+      .wrap{padding:0 16px}
+      .topbar-inner{height:auto;min-height:64px;padding:10px 0}
+      .nav{display:none}
+      .hero{padding-top:52px}
+      .hero-copy{font-size:17px}
+      .grid,.raid-grid,.visual-grid,.sources{grid-template-columns:1fr}
+      .account-row,.account-row.head{grid-template-columns:52px 1fr;gap:7px 10px}
+      .account-row.head{display:none}
+      .account-row .status{grid-column:2}
+      .account-row .account-text{grid-column:2}
+      .section-head{display:block}
+      .section-head p{margin-top:10px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand"><span class="brand-mark"></span><span>LOST ARK DPS</span></div>
+      <nav class="nav">
+        <a href="#checklist">Checklist</a>
+        <a href="#raid">Raid DPS</a>
+        <a href="#visuals">Visual Guide</a>
+        <a href="#other-factors">Other Factors</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <span class="kicker">2026 · Practical progression guide</span>
+        <h1>Everything that actually <span>increases your DPS</span> in Lost Ark.</h1>
+        <p class="hero-copy">
+          No filler, no “just play better,” and no pretending every system matters equally.
+          This is the concrete checklist: what raises your character’s damage, why it matters,
+          and the next thing you should actually do.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#checklist">Start the checklist ↓</a>
+          <a class="btn" href="#visuals">See the systems</a>
+        </div>
+      </div>
+    </section>
+<section class="section" id="checklist">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Character progression</div><h2>The DPS checklist</h2></div>
+        </div>
+
+        <div class="progress-shell">
+          <div class="progress-top"><b>Your progression checklist</b><span id="progressText">0 / 23 completed</span></div>
+          <div class="bar"><i id="progressBar"></i></div>
+        </div>
+
+        <div class="toolbar">
+          <input id="search" class="search" type="search" placeholder="Search: gems, bracelet, cards, Ark Grid..." aria-label="Search checklist" />
+          <button type="button" class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="gear">Gear</button>
+          <button class="filter" data-filter="systems">Ark Systems</button>
+          <button class="filter" data-filter="build">Build</button>
+          <button class="filter" data-filter="roster">Roster</button>
+        </div>
+
+        <div class="grid" id="cards">
+          <article class="card" data-id="quality" data-cat="gear">
+            <span class="num">01</span><div class="card-top"><span class="tag high">High</span><button type="button" class="check" aria-label="Mark Gear Quality complete">✓</button></div>
+            <div class="card-title">Weapon Quality</div>
+            <p>Weapon quality is the part that directly increases your damage. Armor quality is survivability, not a direct DPS upgrade, so it is intentionally not counted here as damage progression.</p>
+            <div class="action"><b>Do this:</b> Keep pushing weapon quality when the gold efficiency makes sense. Don’t recraft a weapon just to chase quality.</div>
+          </article>
+
+          <article class="card" data-id="honing" data-cat="gear">
+            <span class="num">02</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Honing complete">✓</button></div>
+            <div class="card-title">Item Level / Honing Distribution</div>
+            <p>More item level means more raw stats. For pure offense, weapon upgrades matter most, followed roughly by gloves, shoulders, helmet, pants and chest.</p>
+            <div class="action"><b>Do this:</b> Prioritize weapon when you want damage, but keep armor at the raid’s expected level so you don’t get punished by defense gating.</div>
+          </article>
+
+          <article class="card" data-id="accessory-rolls" data-cat="gear">
+            <span class="num">03</span><div class="card-top"><span class="tag high">High</span><button type="button" class="check" aria-label="Mark Accessory Effects complete">✓</button></div>
+            <div class="card-title">T4 Accessory Effects</div>
+            <p>Your refined accessory lines are real DPS. The best line depends on class and build: crit rate, crit damage, outgoing damage, attack power and similar effects are not equal for everyone.</p>
+            <div class="action"><b>Do this:</b> Compare the actual offensive lines for your exact build instead of buying an accessory only because its combat power looks higher.</div>
+          </article>
+
+          <article class="card" data-id="accessory-quality" data-cat="gear">
+            <span class="num">04</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Accessory Quality complete">✓</button></div>
+            <div class="card-title">Accessory Quality / Enlightenment Points</div>
+            <p>T4 accessory quality controls base stats and Ark Passive points. On Ancient accessories, 67+ quality is the clean target for full Enlightenment points.</p>
+            <div class="action"><b>Do this:</b> First make sure your total Enlightenment points hit the breakpoint your build needs; only then min-max the main-stat value.</div>
+          </article>
+
+          <article class="card" data-id="cards" data-cat="roster">
+            <span class="num">05</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Card Set complete">✓</button></div>
+            <div class="card-title">Card Set</div>
+            <p>Your equipped 6-card set directly changes damage. LOS 30 is the default baseline, while elemental sets can beat it when the boss is weak to that element and your awakening level is high enough.</p>
+            <div class="action"><b>Do this:</b> Save raid-specific card presets and swap when an elemental weakness actually beats your normal set.</div>
+          </article>
+
+          <article class="card" data-id="catalog" data-cat="roster">
+            <span class="num">06</span><div class="card-top"><span class="tag minmax">Min-max</span><button type="button" class="check" aria-label="Mark Card Catalog complete">✓</button></div>
+            <div class="card-title">Card Catalog / Book Bonuses</div>
+            <p>Completed books give roster-wide stats and bonus damage versus enemy types. Small individually, meaningful when stacked over a developed roster.</p>
+            <div class="action"><b>Do this:</b> Finish efficient books that grant your combat stat or damage against the enemy types appearing in current raids.</div>
+          </article>
+
+          <article class="card" data-id="skins" data-cat="roster">
+            <span class="num">07</span><div class="card-top"><span class="tag minmax">Min-max</span><button type="button" class="check" aria-label="Mark Skin Stats complete">✓</button></div>
+            <div class="card-title">Legendary Skin Stats</div>
+            <p>Legendary skins provide more main stat than Epic skins. It is not a huge jump, but it is permanent character power.</p>
+            <div class="action"><b>Do this:</b> Treat this as late-game optimization—not something to prioritize over core progression systems.</div>
+          </article>
+
+          <article class="card" data-id="roster-stats" data-cat="roster">
+            <span class="num">08</span><div class="card-top"><span class="tag medium">Medium</span><button type="button" class="check" aria-label="Mark Roster Stats complete">✓</button></div>
+            <div class="card-title">Roster / Horizontal Combat Stats</div>
+            <p>Roster progression and permanent stat potions add main stat and combat stats such as Crit, Specialization and Swiftness.</p>
+            <div class="action"><b>Do this:</b> Complete the horizontal content that awards permanent combat-stat and skill-point potions. These are free, permanent upgrades.</div>
+          </article>
+
+          <article class="card" data-id="pet" data-cat="roster">
+            <span class="num">09</span><div class="card-top"><span class="tag high">High</span><button type="button" class="check" aria-label="Mark Pet Effect complete">✓</button></div>
+            <div class="card-title">Pet Stat & Pet Ability</div>
+            <p>Use the pet stat that matches your build, then optimize the pet combat ability such as Additional Damage or enemy-type damage.</p>
+            <div class="action"><b>Do this:</b> Verify your pet is actually set to the correct combat stat. This is one of the easiest mistakes to fix.</div>
+          </article>
+
+          <article class="card" data-id="level70" data-cat="build">
+            <span class="num">10</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Level 70 complete">✓</button></div>
+            <div class="card-title">Combat Level 70</div>
+            <p>Being below 70 costs damage, skill points, Ark Passive points and max mana. Level 70 is not optional for a finished endgame character.</p>
+            <div class="action"><b>Do this:</b> Get the character to 70 before worrying about tiny late-game min-max gains.</div>
+          </article>
+
+          <article class="card" data-id="skill-points" data-cat="build">
+            <span class="num">11</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Skill Points complete">✓</button></div>
+            <div class="card-title">Skill Points</div>
+            <p>Your main damage skills need enough points to reach the correct skill levels, often level 14 on the most important abilities.</p>
+            <div class="action"><b>Do this:</b> Collect missing Skill Point Potions and make sure your core damage skills are not sitting below the build’s intended level.</div>
+          </article>
+
+          <article class="card" data-id="kurzan" data-cat="roster">
+            <span class="num">12</span><div class="card-top"><span class="tag medium">Medium</span><button type="button" class="check" aria-label="Mark Kurzan Contribution complete">✓</button></div>
+            <div class="card-title">Kurzan Contribution</div>
+            <p>Its combat bonuses apply in relevant Kazeros / Epic Raid content. At level 10, the offensive bonus includes Attack Power.</p>
+            <div class="action"><b>Do this:</b> Level it if you are actively raiding the content where it applies; don’t count it as universal character-sheet DPS.</div>
+          </article>
+
+          <article class="card" data-id="paradise" data-cat="systems">
+            <span class="num">13</span><div class="card-top"><span class="tag medium">Seasonal</span><button type="button" class="check" aria-label="Mark Paradise Orb complete">✓</button></div>
+            <div class="card-title">Paradise Orb</div>
+            <p>Paradise Orbs provide a small seasonal power gain tied to your Paradise progress and orb effect. The value varies by orb and your Paradise Power.</p>
+            <div class="action"><b>Do this:</b> Use an offensive orb that fits your character and keep current-season Paradise progression up to date.</div>
+          </article>
+
+          <article class="card" data-id="ark-grid" data-cat="systems">
+            <span class="num">14</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Ark Grid complete">✓</button></div>
+            <div class="card-title">Ark Grid Cores</div>
+            <p>Order Cores are class-specific; Chaos Cores are universal. Core effects unlock at point thresholds, and Ancient cores can improve the 17-point effect.</p>
+            <div class="action"><b>Do this:</b> Use the correct Order setup for your class and push the relevant 10 / 14 / 17 / 18 / 19 / 20 point breakpoints.</div>
+          </article>
+
+          <article class="card" data-id="astrogems" data-cat="systems">
+            <span class="num">15</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Astrogems complete">✓</button></div>
+            <div class="card-title">Astrogems</div>
+            <p>Astrogems both activate your Core thresholds and add direct offensive stats such as Damage, Additional Damage and Boss Attack.</p>
+            <div class="action"><b>Do this:</b> Optimize Willpower efficiency first so the whole line activates, then chase useful DPS lines and enough Core Points for your target threshold.</div>
+          </article>
+
+          <article class="card" data-id="ark-passive" data-cat="systems">
+            <span class="num">16</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Ark Passive complete">✓</button></div>
+            <div class="card-title">Ark Passive Setup</div>
+            <p>Evolution, Enlightenment and Leap define the modern endgame build. This is also where much of the old Elixir/Transcendence power went: their set-style and DPS/support effects were folded into Evolution nodes, while basic stats were moved into gear.</p>
+            <div class="action"><b>Do this:</b> Use a current post-removal class build and adjust Evolution for your actual crit, gems, party synergy and speed—not an old Elixir/Transcendence-era preset.</div>
+          </article>
+
+          <article class="card" data-id="karma" data-cat="systems">
+            <span class="num">17</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Karma complete">✓</button></div>
+            <div class="card-title">Karma</div>
+            <p>Karma upgrades Ark Passive-related power. Enlightenment levels add Weapon Power, Enlightenment ranks grant points, and Leap progression improves Hyper Awakening / Leap access.</p>
+            <div class="action"><b>Do this:</b> Finish the meaningful ranks/levels for your build before spending heavily on tiny luxury upgrades elsewhere.</div>
+          </article>
+
+          <article class="card" data-id="stone" data-cat="build">
+            <span class="num">18</span><div class="card-top"><span class="tag high">High</span><button type="button" class="check" aria-label="Mark Ability Stone complete">✓</button></div>
+            <div class="card-title">Ability Stone</div>
+            <p>Your stone still contributes through its two engraving effects and T4 stone bonuses. The automatic cutter makes the system easier, not irrelevant.</p>
+            <div class="action"><b>Do this:</b> Cut the two engravings your final setup actually uses and stop when the next upgrade is worse gold-per-DPS than other systems.</div>
+          </article>
+
+          <article class="card" data-id="engravings" data-cat="build">
+            <span class="num">19</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Engravings complete">✓</button></div>
+            <div class="card-title">Combat Engravings</div>
+            <p>Use the correct five combat engravings for your build. Your old class engraving is not a separate T4 engraving slot—it lives in Ark Passive Enlightenment.</p>
+            <div class="action"><b>Do this:</b> Finish the five combat engravings and their book progression; only use cheaper conditional options when your build can satisfy them without losing uptime.</div>
+          </article>
+
+          <article class="card" data-id="bracelet" data-cat="gear">
+            <span class="num">20</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Bracelet complete">✓</button></div>
+            <div class="card-title">T4 Bracelet</div>
+            <p>T4 bracelets provide Leap Points plus fixed and rolled combat bonuses. The important part is not a generic Combat Power number—it is whether the bracelet gives the points and offensive effects your build actually benefits from.</p>
+            <div class="action"><b>Do this:</b> Secure the Leap-point breakpoint your build needs, then compare the rolled offensive effects for your exact crit and damage profile.</div>
+          </article>
+
+          <article class="card" data-id="gems" data-cat="build">
+            <span class="num">21</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Gems complete">✓</button></div>
+            <div class="card-title">Gems</div>
+            <p>Damage gems are direct multipliers; cooldown gems can change your entire rotation. The value depends heavily on which skills actually deal your damage.</p>
+            <div class="action"><b>Do this:</b> Upgrade your highest damage-share skills first and hit cooldown breakpoints that create a cleaner, repeatable rotation.</div>
+          </article>
+
+          <article class="card" data-id="skills" data-cat="build">
+            <span class="num">22</span><div class="card-top"><span class="tag essential">Essential</span><button type="button" class="check" aria-label="Mark Skills complete">✓</button></div>
+            <div class="card-title">Skills & Skill Tree Choices</div>
+            <p>Tripod/Skill Tree <b>levels</b> no longer exist. In PvE, the game automatically applies the former max-level effect. What still matters is choosing the correct Skill Tree options for your build and the encounter.</p>
+            <div class="action"><b>Do this:</b> There is nothing to level or transfer anymore. Run the current core Skill Tree setup, then use raid presets for counter, push immunity, meter generation or utility swaps.</div>
+          </article>
+
+          <article class="card" data-id="runes" data-cat="build">
+            <span class="num">23</span><div class="card-top"><span class="tag high">High</span><button type="button" class="check" aria-label="Mark Runes complete">✓</button></div>
+            <div class="card-title">Skill Runes</div>
+            <p>Galewind, Wealth, Quick Recharge and other runes can be the difference between the intended rotation and a build that constantly desyncs.</p>
+            <div class="action"><b>Do this:</b> Finish the missing runes your class guide actually calls for and put the strongest versions on the skills that benefit most.</div>
+          </article>
+        </div>
+        <p class="cards-note">Priority labels are intentionally broad: the exact gold-per-DPS order changes by class and by how complete your character already is.</p>
+      </div>
+    </section>
+
+    <section class="section" id="raid">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Inside the raid</div><h2>Things that raise real raid DPS</h2></div>
+        </div>
+        <div class="raid-grid">
+          <div class="raid"><div class="icon">✦</div><h3>Support uptime</h3><p>Brand, attack buffs, identity buffs and offensive bracelet effects are enormous. A strong support can contribute a huge share of your effective damage.</p></div>
+          <div class="raid"><div class="icon">◎</div><h3>Party synergy</h3><p>Crit synergy, positional synergy, attack/movement speed and mana support can materially change the best Ark Passive setup and your ceiling.</p></div>
+          <div class="raid"><div class="icon">⚗</div><h3>Food & Stronghold feast</h3><p>Main stats, weapon power, mana recovery and attack/movement speed can fix resource or speed breakpoints and improve uptime.</p></div>
+          <div class="raid"><div class="icon">◆</div><h3>Battle items</h3><p>Dark Grenades, Atropines and correct utility usage create real damage windows. Don’t overlap debuffs that do not stack.</p></div>
+          <div class="raid"><div class="icon">↻</div><h3>Fight-specific skill preset</h3><p>Swapping a counter, meter generator, rune or defensive tripod can increase your ceiling if the encounter allows it.</p></div>
+          <div class="raid"><div class="icon">⌁</div><h3>Boss uptime</h3><p>Knowing when the boss becomes untargetable, moves, turns or enters a mechanic lets you hold burst, pre-build resources and avoid wasting major cooldowns.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visuals">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">What the systems look like</div><h2>Visual reference</h2></div>
+        </div>
+        <div class="visual-grid">
+          <figure>
+            <img loading="lazy" src="https://images.ctfassets.net/umhrp0op95v1/65TExfiwcrGDXEo2gWQ3np/446a4ce88d68965ff2d43e26215826ed/Ark_Grid_UI_1920x1080.png" alt="Lost Ark Ark Grid interface with a core and connected Astrogems">
+            <figcaption><b>Ark Grid</b>Cores sit at the center of each line; connected Astrogems consume Willpower and build Core Points to activate thresholds.</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="assets/ark-passive-en.png" alt="Lost Ark Ark Passive Enlightenment interface">
+            <figcaption><b>Ark Passive</b>Using your provided English screenshot. Evolution, Enlightenment and Leap are where modern class builds are assembled. Your point breakpoints matter more than raw CP.</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="assets/bracelet-en.svg" alt="Lost Ark Tier 4 bracelet upgrade interface">
+            <figcaption><b>T4 Bracelet</b>English visual guide. Bracelets combine fixed stats, random combat effects and Leap Points. Relic bracelets can be upgraded to Ancient.</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="https://images.ctfassets.net/umhrp0op95v1/6BmqBzJEV5sm4lhbc29aR2/9a915cea366d50efb5670ddc0673c442/Image5_Equip_Tab_1920x1080.jpg" alt="Lost Ark card set equip interface showing Light of Salvation">
+            <figcaption><b>Card Set</b>Your active six-card deck provides the set bonuses. Keep separate presets when an elemental set beats your default setup.</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="assets/ability-stone-en.svg" alt="Lost Ark Tier 4 ability stone interface">
+            <figcaption><b>Ability Stone</b>English visual guide. T4 stones still matter through the selected engraving effects and the stone’s own progression bonuses.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="other-factors">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">Beyond character progression</div><h2>Other Factors</h2></div>
+        </div>
+
+        <div class="raid-grid">
+          <div class="raid">
+            <div class="icon">⚔</div>
+            <h3>Class</h3>
+            <p>Different classes and builds have different ceilings depending on balance, raid design and damage profile. This affects DPS, but it is not an upgrade you progress on your character.</p>
+          </div>
+
+          <div class="raid">
+            <div class="icon">🎲</div>
+            <h3>Luck / RNG</h3>
+            <p>Crit streaks, boss aggro, pattern selection and random movement can make an otherwise identical pull look significantly better or worse.</p>
+          </div>
+
+          <div class="raid">
+            <div class="icon">◉</div>
+            <h3>Greed</h3>
+            <p>Taking extra damage windows can raise your parse, but getting interrupted, knocked down or killed can cost far more DPS than the extra hit was worth.</p>
+          </div>
+
+          <div class="raid">
+            <div class="icon">▣</div>
+            <h3>PC Specs / Settings</h3>
+            <p>Frame drops, stutter, display settings and poor system performance can hurt execution and uptime even though they do not change your character's actual stats.</p>
+          </div>
+
+          <div class="raid">
+            <div class="icon">↯</div>
+            <h3>Ping</h3>
+            <p>Latency can affect skill timing, movement, animation responsiveness and tight action-combat windows. It matters for performance, but it is not an in-game progression system.</p>
+          </div>
+        </div>
+
+        <div class="special-factor">
+          <div class="special-kicker">Special Mention</div>
+          <div class="special-title">Esther / Sidereal Weapon</div>
+          <p>Esther weapons can provide additional power and unique Sidereal effects, but they are an exceptionally expensive, niche progression path. They are real DPS progression for the tiny number of players using them, not something the normal checklist should tell everyone to pursue.</p>
+        </div>
+      </div>
+    </section>
+</main>
+
+  <footer>
+    <div class="wrap">
+      <span class="made">Lost Ark DPS Progression Checklist</span> · Audited September 11, 2026 · Community reference, not affiliated with Smilegate or Amazon Games.
+    </div>
+  </footer>
+
+  <script>
+    const cards = [...document.querySelectorAll('.card[data-id]')];
+    const key = 'lostark-dps-checklist-v2';
+    let canStore = true;
+    let done = new Set();
+
+    try {
+      const saved = window.localStorage.getItem(key);
+      done = new Set(saved ? JSON.parse(saved) : []);
+    } catch (err) {
+      canStore = false;
+      done = new Set();
+    }
+
+    function saveProgress(){
+      if (!canStore) return;
+      try {
+        window.localStorage.setItem(key, JSON.stringify([...done]));
+      } catch (err) {
+        canStore = false;
+      }
+    }
+
+    function renderProgress(){
+      cards.forEach(card => {
+        const isDone = done.has(card.dataset.id);
+        card.classList.toggle('done', isDone);
+        const btn = card.querySelector('.check');
+        if (btn) btn.setAttribute('aria-pressed', String(isDone));
+      });
+      const total = cards.length;
+      const count = done.size;
+      document.getElementById('progressText').textContent = `${count} / ${total} completed${canStore ? '' : ' · preview mode'}`;
+      document.getElementById('progressBar').style.width = `${total ? (count/total)*100 : 0}%`;
+      saveProgress();
+    }
+
+    cards.forEach(card => {
+      const btn = card.querySelector('.check');
+      if (!btn) return;
+      btn.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const id = card.dataset.id;
+        if (done.has(id)) done.delete(id); else done.add(id);
+        renderProgress();
+      });
+    });
+
+    const filters = [...document.querySelectorAll('.filter')];
+    let currentFilter = 'all';
+    let query = '';
+
+    function applyFilters(){
+      cards.forEach(card => {
+        const categoryMatch = currentFilter === 'all' || card.dataset.cat === currentFilter;
+        const textMatch = card.innerText.toLowerCase().includes(query);
+        card.classList.toggle('hide', !(categoryMatch && textMatch));
+      });
+    }
+
+    filters.forEach(btn => btn.addEventListener('click', () => {
+      currentFilter = btn.dataset.filter;
+      filters.forEach(x => x.classList.toggle('active', x === btn));
+      applyFilters();
+    }));
+
+    document.getElementById('search').addEventListener('input', e => {
+      query = e.target.value.trim().toLowerCase();
+      applyFilters();
+    });
+
+    renderProgress();
+  </script>
+</body>
+</html>

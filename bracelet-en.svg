@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#121826"/>
+      <stop offset="55%" stop-color="#0b1018"/>
+      <stop offset="100%" stop-color="#0c0f16"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#182031"/>
+      <stop offset="100%" stop-color="#101521"/>
+    </linearGradient>
+    <linearGradient id="header" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6f33c8"/>
+      <stop offset="50%" stop-color="#9b56eb"/>
+      <stop offset="100%" stop-color="#6f33c8"/>
+    </linearGradient>
+    <radialGradient id="goldGlow">
+      <stop offset="0%" stop-color="#fff1b0"/>
+      <stop offset="60%" stop-color="#d7a641"/>
+      <stop offset="100%" stop-color="#6b4512"/>
+    </radialGradient>
+    <radialGradient id="purpleGlow">
+      <stop offset="0%" stop-color="#f0d7ff"/>
+      <stop offset="60%" stop-color="#a96cff"/>
+      <stop offset="100%" stop-color="#402070"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1552" height="852" rx="18" fill="none" stroke="#3b4355"/>
+  <rect x="0" y="0" width="1600" height="66" fill="#0a0d13"/>
+  <rect x="340" y="24" width="920" height="54" rx="14" fill="url(#header)" filter="url(#shadow)"/>
+  <text x="800" y="58" text-anchor="middle" fill="white" font-size="34" font-family="Georgia, Times New Roman, serif">Tier 4 Bracelet</text>
+  <text x="1530" y="56" text-anchor="end" fill="#f1c96d" font-size="20" font-family="Arial, Helvetica, sans-serif">ENGLISH VISUAL GUIDE</text>
+
+  <rect x="32" y="108" width="410" height="720" rx="16" fill="url(#panel)" stroke="#2d3444"/>
+  <text x="68" y="158" fill="#f9ebc0" font-size="28" font-family="Georgia, Times New Roman, serif">Bracelet Overview</text>
+  
+        <rect x="52" y="168" width="360" height="54" rx="12" fill="rgba(5,8,14,0.55)" stroke="rgba(255,255,255,0.05)"/>
+        <text x="72" y="190" fill="#ffe2a3" font-size="24" font-family="Arial, Helvetica, sans-serif">Bracelet Grade</text>
+        <text x="390" y="190" text-anchor="end" fill="#f7d27a" font-size="24" font-family="Arial, Helvetica, sans-serif">Ancient</text>
+        
+        <rect x="52" y="236" width="360" height="54" rx="12" fill="rgba(5,8,14,0.55)" stroke="rgba(255,255,255,0.05)"/>
+        <text x="72" y="258" fill="#ffe2a3" font-size="24" font-family="Arial, Helvetica, sans-serif">Leap Points</text>
+        <text x="390" y="258" text-anchor="end" fill="#f7d27a" font-size="24" font-family="Arial, Helvetica, sans-serif">18</text>
+        
+        <rect x="52" y="304" width="360" height="54" rx="12" fill="rgba(5,8,14,0.55)" stroke="rgba(255,255,255,0.05)"/>
+        <text x="72" y="326" fill="#d7deea" font-size="24" font-family="Arial, Helvetica, sans-serif">Base Stat 1</text>
+        <text x="390" y="326" text-anchor="end" fill="#a7b3c6" font-size="24" font-family="Arial, Helvetica, sans-serif">Crit</text>
+        
+        <rect x="52" y="372" width="360" height="54" rx="12" fill="rgba(5,8,14,0.55)" stroke="rgba(255,255,255,0.05)"/>
+        <text x="72" y="394" fill="#d7deea" font-size="24" font-family="Arial, Helvetica, sans-serif">Base Stat 2</text>
+        <text x="390" y="394" text-anchor="end" fill="#a7b3c6" font-size="24" font-family="Arial, Helvetica, sans-serif">Specialization</text>
+        
+        <rect x="52" y="440" width="360" height="54" rx="12" fill="rgba(5,8,14,0.55)" stroke="rgba(255,255,255,0.05)"/>
+        <text x="72" y="462" fill="#ffe2a3" font-size="24" font-family="Arial, Helvetica, sans-serif">Bonus Effect</text>
+        <text x="390" y="462" text-anchor="end" fill="#f7d27a" font-size="24" font-family="Arial, Helvetica, sans-serif">Outgoing Damage</text>
+        
+        <rect x="52" y="508" width="360" height="54" rx="12" fill="rgba(5,8,14,0.55)" stroke="rgba(255,255,255,0.05)"/>
+        <text x="72" y="530" fill="#d7deea" font-size="24" font-family="Arial, Helvetica, sans-serif">Bonus Effect</text>
+        <text x="390" y="530" text-anchor="end" fill="#a7b3c6" font-size="24" font-family="Arial, Helvetica, sans-serif">Weapon Power</text>
+        
+        <rect x="52" y="576" width="360" height="54" rx="12" fill="rgba(5,8,14,0.55)" stroke="rgba(255,255,255,0.05)"/>
+        <text x="72" y="598" fill="#ffe2a3" font-size="24" font-family="Arial, Helvetica, sans-serif">Upgrade Path</text>
+        <text x="390" y="598" text-anchor="end" fill="#f7d27a" font-size="24" font-family="Arial, Helvetica, sans-serif">Relic → Ancient</text>
+        
+
+  <rect x="474" y="108" width="1094" height="720" rx="16" fill="rgba(21,11,14,0.26)" stroke="#2d3444"/>
+  <text x="510" y="158" fill="#f3f5f8" font-size="30" font-family="Arial, Helvetica, sans-serif">What you look for on a DPS bracelet</text>
+  
+        <g>
+          <circle cx="510" cy="210" r="44" fill="rgba(10,12,18,0.92)" stroke="#ffcc6e" stroke-width="6"/>
+          <circle cx="510" cy="210" r="28" fill="url(#goldGlow)"/>
+          <text x="510" y="216" text-anchor="middle" fill="#fff4d4" font-size="20" font-weight="700" font-family="Arial, Helvetica, sans-serif">1</text>
+          <rect x="418" y="268" width="184" height="68" rx="16" fill="rgba(9,12,18,0.92)" stroke="rgba(255,255,255,0.07)"/>
+          <text x="510" y="296" text-anchor="middle" fill="#f0f4fb" font-size="19" font-family="Arial, Helvetica, sans-serif">Leap Points</text>
+          <text x="510" y="320" text-anchor="middle" fill="#aab5c8" font-size="15" font-family="Arial, Helvetica, sans-serif">Meet build breakpoint</text>
+        </g>
+        
+        <g>
+          <circle cx="750" cy="210" r="44" fill="rgba(10,12,18,0.92)" stroke="#8ed0ff" stroke-width="6"/>
+          <circle cx="750" cy="210" r="28" fill="url(#purpleGlow)"/>
+          <text x="750" y="216" text-anchor="middle" fill="#fff4d4" font-size="20" font-weight="700" font-family="Arial, Helvetica, sans-serif">2</text>
+          <rect x="658" y="268" width="184" height="68" rx="16" fill="rgba(9,12,18,0.92)" stroke="rgba(255,255,255,0.07)"/>
+          <text x="750" y="296" text-anchor="middle" fill="#f0f4fb" font-size="19" font-family="Arial, Helvetica, sans-serif">Fixed Stats</text>
+          <text x="750" y="320" text-anchor="middle" fill="#aab5c8" font-size="15" font-family="Arial, Helvetica, sans-serif">Crit / Spec / Swift</text>
+        </g>
+        
+        <g>
+          <circle cx="990" cy="210" r="44" fill="rgba(10,12,18,0.92)" stroke="#ffcc6e" stroke-width="6"/>
+          <circle cx="990" cy="210" r="28" fill="url(#goldGlow)"/>
+          <text x="990" y="216" text-anchor="middle" fill="#fff4d4" font-size="20" font-weight="700" font-family="Arial, Helvetica, sans-serif">3</text>
+          <rect x="898" y="268" width="184" height="68" rx="16" fill="rgba(9,12,18,0.92)" stroke="rgba(255,255,255,0.07)"/>
+          <text x="990" y="296" text-anchor="middle" fill="#f0f4fb" font-size="19" font-family="Arial, Helvetica, sans-serif">Rolled Effect</text>
+          <text x="990" y="320" text-anchor="middle" fill="#aab5c8" font-size="15" font-family="Arial, Helvetica, sans-serif">Damage line</text>
+        </g>
+        
+        <g>
+          <circle cx="510" cy="380" r="44" fill="rgba(10,12,18,0.92)" stroke="#8ed0ff" stroke-width="6"/>
+          <circle cx="510" cy="380" r="28" fill="url(#purpleGlow)"/>
+          <text x="510" y="386" text-anchor="middle" fill="#fff4d4" font-size="20" font-weight="700" font-family="Arial, Helvetica, sans-serif">4</text>
+          <rect x="418" y="438" width="184" height="68" rx="16" fill="rgba(9,12,18,0.92)" stroke="rgba(255,255,255,0.07)"/>
+          <text x="510" y="466" text-anchor="middle" fill="#f0f4fb" font-size="19" font-family="Arial, Helvetica, sans-serif">Rolled Effect</text>
+          <text x="510" y="490" text-anchor="middle" fill="#aab5c8" font-size="15" font-family="Arial, Helvetica, sans-serif">Attack or Weapon Power</text>
+        </g>
+        
+        <g>
+          <circle cx="750" cy="380" r="44" fill="rgba(10,12,18,0.92)" stroke="#ffcc6e" stroke-width="6"/>
+          <circle cx="750" cy="380" r="28" fill="url(#goldGlow)"/>
+          <text x="750" y="386" text-anchor="middle" fill="#fff4d4" font-size="20" font-weight="700" font-family="Arial, Helvetica, sans-serif">5</text>
+          <rect x="658" y="438" width="184" height="68" rx="16" fill="rgba(9,12,18,0.92)" stroke="rgba(255,255,255,0.07)"/>
+          <text x="750" y="466" text-anchor="middle" fill="#f0f4fb" font-size="19" font-family="Arial, Helvetica, sans-serif">Rolled Effect</text>
+          <text x="750" y="490" text-anchor="middle" fill="#aab5c8" font-size="15" font-family="Arial, Helvetica, sans-serif">Class-specific value</text>
+        </g>
+        
+        <g>
+          <circle cx="990" cy="380" r="44" fill="rgba(10,12,18,0.92)" stroke="#8ed0ff" stroke-width="6"/>
+          <circle cx="990" cy="380" r="28" fill="url(#purpleGlow)"/>
+          <text x="990" y="386" text-anchor="middle" fill="#fff4d4" font-size="20" font-weight="700" font-family="Arial, Helvetica, sans-serif">6</text>
+          <rect x="898" y="438" width="184" height="68" rx="16" fill="rgba(9,12,18,0.92)" stroke="rgba(255,255,255,0.07)"/>
+          <text x="990" y="466" text-anchor="middle" fill="#f0f4fb" font-size="19" font-family="Arial, Helvetica, sans-serif">Upgrade</text>
+          <text x="990" y="490" text-anchor="middle" fill="#aab5c8" font-size="15" font-family="Arial, Helvetica, sans-serif">Ancient for 18 points</text>
+        </g>
+        
+
+  <rect x="1225" y="112" width="300" height="182" rx="16" fill="rgba(7,9,14,0.75)" stroke="#474f62"/>
+  <text x="1252" y="154" fill="#dfe6f4" font-size="24" font-family="Arial, Helvetica, sans-serif">Reference</text>
+  <text x="1252" y="192" fill="#ffdf9a" font-size="44" font-family="Arial, Helvetica, sans-serif">Key</text>
+  <text x="1252" y="230" fill="#b8c3d6" font-size="20" font-family="Arial, Helvetica, sans-serif">English labels with Lost Ark terms.</text>
+  <text x="1252" y="260" fill="#b8c3d6" font-size="20" font-family="Arial, Helvetica, sans-serif">Use this as a quick reference, not</text>
+  <text x="1252" y="286" fill="#b8c3d6" font-size="20" font-family="Arial, Helvetica, sans-serif">a pixel-perfect UI replacement.</text>
+
+  <rect x="40" y="844" width="1520" height="32" rx="10" fill="rgba(0,0,0,0.32)"/>
+  <text x="60" y="866" fill="#aeb8c8" font-size="18" font-family="Arial, Helvetica, sans-serif">English translation / visual summary · Bracelets matter because they combine Leap access and real combat effects.</text>
+</svg>
